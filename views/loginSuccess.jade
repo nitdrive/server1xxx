@@ -1,0 +1,14 @@
+extends layout
+
+
+
+block content
+   
+    div
+        - user = typeof(result) != 'undefined' ? result : { }
+       h1(style="text-align:center;background-color:lightgrey;font-family:TimesNewRoman;") Login Successful
+       for field in user
+          h2 Welcome #{field.name} you have successfully logged in          
+               
+    
+              

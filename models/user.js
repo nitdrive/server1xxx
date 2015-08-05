@@ -1,0 +1,70 @@
+// Load required packages
+var mongoose = require('mongoose');
+var secrets = require('../config/secrets');
+var hashUse = require('../cryptos/sha1');
+//console.log(hashUse);
+// Define our user schema
+var UserSchema = new mongoose.Schema({
+ 
+  // Account Details
+  firstName: String,
+  middleName: String,
+  lastName: String,
+  dob : String,
+
+  //username and password
+  uname: String,
+  password: String,
+
+  // Test Scores
+   greScore: Number,
+			greQuantScore: Number,
+			greVerbalScore: Number,
+			greAWAScore: Number,
+   toeflScore: { type: Number, default: 0 },
+			 toeflListeningScore: { type: Number, default: 0 },
+			 toeflReadingScore: { type: Number, default: 0 },
+			 toeflWritingScore: { type: Number, default: 0 },
+			 toeflSpeakingScore: { type: Number, default: 0 },
+   iletsScore: { type: Number, default: 0 },
+			 iletsListeningScore: { type: Number, default: 0 },
+			 iletsReadingScore : { type: Number, default: 0 },
+                         iletsWritingScore : { type: Number, default: 0 },
+			 iletsSpeakingScore: { type: Number, default: 0 },
+
+  // undergrad details
+  undergradGPA: Number,
+  undergradMajor: String,
+  undergradCollege: String,
+  undergradCollegeCity: String,
+  undergradCollegeState: String,
+  undergradCollegeCountry: String,
+  
+  // grad details
+  semesterIntended: String,
+  majorIntended: String, 
+  degreeExpected: String,
+
+  //contact details
+  email: String,
+  phoneNumber: String,
+  maddress: String,
+  city: String,
+  district: String,
+  state: String,
+  country: { type: String, default: 'India' },
+  
+  
+  //jsonSpecificUserData : mongoose.Schema.Types.Mixed,
+  created: { type: Date, default: new Date() }
+  /*accessToken: { type: String, required: true },
+  tokenSecret: { type: String, required: true }*/
+},{collection: 'userlist'});
+
+/*UserSchema.methods.hashPassword = function()
+{*/
+  // console.log(hashUse.hash("pass123**"));
+//}
+
+// Export the Mongoose model
+module.exports = mongoose.model('userlist', UserSchema);

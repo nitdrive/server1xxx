@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div
+       h1(style="text-align:center;background-color:lightgrey;font-family:TimesNewRoman;") Register
+    form(action="" method="post")
+       placeholder Enter your name: &nbsp;&nbsp;&nbsp;
+       input(type="text" name="name" id="name")
+       br
+       br
+       placeholder Create a Username: 
+       input(type="text" name="uname" id="uname")
+       br
+       br
+       placeholder Create a Password: 
+       input(type="password" name="password" id="password")
+       br
+       br
+       placeholder Enter your GRE Score: 
+       input(type="text" name="greScore" id="greScore")
+       br
+       br
+       input(type="submit" onclick="alert('Register Module is now Enabled!')" value="Register") 
+    

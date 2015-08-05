@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Nodelabs-User Login
+    script.
+         function a(){
+         alert('a');
+         var data = #{userlist};
+         var obj = JSON.parse(data);
+         var b = obj[0].name;
+         document.getElementById('display').innerHTML = "Hello";
+        
+         }
+        
+  body(onload="a()")
+    
+   
+    div#chart_div
+    div#display
+    div
+        - userlist = typeof(result) != 'undefined' ? result : { }
+        h1(style="text-align:center;background-color:lightgrey;font-family:TimesNewRoman;") Registered Users
+        
+        
+        ul 
+          each user in userlist
+              li= user.name
+              
+       
+       
+    

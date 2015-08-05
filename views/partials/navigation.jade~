@@ -1,0 +1,5 @@
+header
+  div
+     div
+       img(src="/img/nodelabs.png" width="123.5px" height="42px")
+       a(href='/') Nodelabs

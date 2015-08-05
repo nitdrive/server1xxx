@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #chart_div {
+            width: 50%;
+            height: 100%;
+        }   
+    </style>
+    
+    <!--Load the AJAX API-->
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+dataGlobal = "";
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+  $http.get("http://192.168.0.101:3000/user/list")
+  .success(function (response) {$scope.names = response;});
+  
+  $scope.listApi = function(){
+     
+      dataGlobal = $scope.names;
+    
+      //console.log("1"+dataGlobal[0].name);
+      return drawChart(dataGlobal);
+  }
+   
+   
+});
+
+
+// Charts Api
+ 
+  
+google.load("visualization", "1", {packages:["corechart"]});
+
+
+if(dataGlobal.length>0)
+{ 
+google.setOnLoadCallback(drawChart);
+function drawChart(x) {
+
+    
+    //console.log("2"+x);
+    var bcData = new google.visualization.DataTable();
+
+    bcData.addColumn('string', 'NAssamame');
+    bcData.addColumn('number', 'GRE Score');
+
+    for (var i = 0; i < x.length ; i++) {
+        bcData.addRow([x[i].name, parseInt(x[i].greScore)]);
+    }
+
+    var options = {
+        title : 'GRE Scores of registered users'
+        /*vAxis: {title: "Names"},
+        seriesType: "bars",
+        series: {1: {type: "line"}}*/
+         width: 400px, 
+         height: 240px
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+    chart.draw(bcData, options);
+}
+
+}
+</script>
+</head>
+
+<body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+    <div ng-app="myApp" ng-controller="customersCtrl"> 
+        
+        <ul>
+	  <li ng-repeat="x in names">
+	    {{ x.name + ', ' + x.greScore }}
+	  </li>
+	</ul>
+       <button ng-click="listApi()">List Details</button>
+   </div>
+</body>
+</html>

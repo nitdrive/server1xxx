@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	
+   
+   
+  
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/registerControl.js"></script>
+    
+
+  </head>
+  <body ng-app="starter" >
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable bar bar-header">
+        <h1 class="title">School Mate</h1>
+      </ion-header-bar>
+      <ion-content>
+
+      
+       <!-- Registration Screen -->
+     
+   
+     <div class="card" id="app-user-registration-personal" ng-hide="userRegistrationS1" ng-controller="switchScreen">
+	      <div class="item item-divider">Registration - Personal Details</div>
+	      <div class="list">
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">First Name</span>
+		    <input type="text" placeholder="John">
+		  </label>
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Middle Name</span>
+		    <input type="text" placeholder="Mac">
+		  </label>
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Last Name</span>
+		    <input type="text" placeholder="Suhr">
+		  </label>
+		 
+		 <label class="item item-input item-stacked-label">
+		    <span class="input-label">Date of Birth</span>
+		    <input type="text" placeholder="04/20/1991">
+		 </label>
+		 <label class="item item-input item-stacked-label">
+		    <span class="input-label">Email</span>
+		    <input type="email" placeholder="john@xyz.com">
+		  </label>
+		  <label class="item item-input item-stacked-label">
+		    <span class="input-label">Phone Number</span>
+		    <input type="text" placeholder="504-881-5455">
+		  </label>
+		  <div class="item item-divider item-light">
+	   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Next</button>
+		  </div>
+	    </div>
+    </div>
+
+     <div class="card" id="app-user-registration-address" ng-hide="userRegistrationS2" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Location Details</div>
+      <div class="list">
+	<label class="item item-input item-stacked-label">
+	 <span class="input-label">Mailing Address</span>    	 
+	 <textarea placeholder="1234 xyz street" ></textarea>
+         </label>
+	 <label class="item item-input item-stacked-label">
+	    <span class="input-label">District</span>
+	    <input type="text" placeholder="Chitoor">
+	  </label>
+	<label class="item item-input item-stacked-label">
+	    <span class="input-label">City</span>
+	    <input type="text" placeholder="Hyderabad">
+	 </label>
+	<label class="item item-input item-stacked-label">
+	    <span class="input-label">State</span>
+	    <input type="text" placeholder="Andhra Pradesh">
+	 </label>
+	<label class="item item-input item-stacked-label">
+	    <span class="input-label">Country</span>
+	    <input type="text" placeholder="Andhra Pradesh">
+	 </label>
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Next</button>
+	 </div>
+	</div>
+      </div>
+	
+    <div class="card" id="app-user-registration-password" ng-hide="userRegistrationS3" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Create Password</div>
+      <div class="list">
+	
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()" ng-controller="switchScreen">Next</button>
+	 </div>
+	</div>
+    </div>
+	
+   <div class="card" id="app-user-registration-enrollment" ng-hide="userRegistrationS4" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Enrollment Information</div>
+      <div class="list">
+	<label class="item item-input item-stacked-label">
+	    <span class="input-label">Semester</span>
+                       <select  ng-model="semester">
+                            <option selected>Fall 2015</option>
+                            <option>Spring 2016</option>
+                            <option>Summer 2016</option>
+                       </select>
+	 </label>
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Next</button>
+	 </div>
+	</div>
+    </div>
+	
+ 
+	
+   <div class="card" id="app-user-registration-previouseducation" ng-hide="userRegistrationS5" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Previous Education and Institution Details</div>
+      <div class="list">
+	
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Next</button>
+	 </div>
+	</div>
+    </div>
+	
+  
+   <div class="card" id="app-user-registration-testscores" ng-hide="userRegistrationS6" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Test Scores</div>
+      <div class="list">
+	
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Next</button>
+	 </div>
+	</div>
+    </div>
+	
+   <div class="card" id="app-user-registration-extraachievements" ng-hide="userRegistrationS7" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Extra Achievements</div>
+      <div class="list">
+	
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Next</button>
+	 </div>
+	</div>
+    </div>
+
+   <div class="card" id="app-user-registration-finish" ng-hide="userRegistrationS8" ng-controller="switchScreen">
+     <div class="item item-divider">Registration - Accept Terms and Finish</div>
+      <div class="list">
+	
+	<div class="item item-divider item-light">
+   		<button class="button button-block button-positive" ng-click="loadNextRegisterScreen()">Finish</button>
+	 </div>
+	</div>
+    </div>
+	
+   <div class="card" id="app-user-registration-enrollment" ng-hide="userRegistrationS9" ng-controller="switchScreen">
+     <div class="item item-divider">Registration Successful</div>
+    <div class="item item-text-wrap">
+      You have successfully registered for {{ semester }} at the University of New Orleans
+    </div>
+    </div>
+    
+	
+
+	
+      </ion-content>
+    </ion-pane>
+   
+  </body>
+</html>

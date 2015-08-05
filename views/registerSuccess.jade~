@@ -1,0 +1,11 @@
+extends layout
+
+block content
+   
+    div
+        - user = typeof(result) != 'undefined' ? result : { }
+       h1(style="text-align:center;background-color:lightgrey;font-family:TimesNewRoman;") Registeration Confirmated
+       h2 {user.name} you have successfully registered          
+               
+    
+              
